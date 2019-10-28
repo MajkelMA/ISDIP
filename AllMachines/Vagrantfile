@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
     end
     s1.vm.network "private_network", ip: "10.0.0.101", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     s1.vm.network "private_network", ip: "172.16.0.11", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-    s1.vm.provision "shell", path: "ServersScript/installHttpd.sh", args: "10.0.0.101"
+    s1.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.101"
     # s1.vm.provision "shell", run: "once", path: "Server1.sh"
   end
 
