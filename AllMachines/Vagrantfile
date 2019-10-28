@@ -1,0 +1,159 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+
+  config.vm.define "Client1" do |c1|
+    c1.vm.hostname = "Client1"
+    c1.vm.provider "virtualbox" do |v|
+      v.name = "Client1"
+      v.memory = 512
+    end
+    c1.vm.network "private_network", ip: "10.0.1.2", virtualbox__intnet: "netcl1", :netmask => "255.255.255.0"
+  end
+
+  config.vm.define "ClientRouter" do |cr|
+    cr.vm.hostname = "ClientRouter"
+    cr.vm.provider "virtualbox" do |v|
+      v.name = "ClientRouter"
+      v.memory = 512
+    end
+    
+    cr.vm.network "private_network", bridge: "eth1", ip: "192.168.1.3", virtualbox__intnet: "extnet", :netmask => "255.255.255.0"
+    cr.vm.network "private_network", bridge: "eth2", ip: "10.0.1.1", virtualbox__intnet: "netcl1", :netmask => "255.255.255.0"
+    # cr.vm.network "private_network", bridge: "eth3", ip: "10.0.2.1", virtualbox__intnet: "netcl2",:netmask => "255.255.255.0"
+
+    cr.vm.provision "shell", run: "once", path: "ClientRouter.sh"
+  end
+
+  config.vm.define "MasterRouter" do |mr|
+    mr.vm.hostname = "MasterRouter"
+    mr.vm.provider "virtualbox" do |v|
+      v.name = "MasterRouter"
+      v.memory = 512
+    end
+    mr.vm.network "private_network", ip: "192.168.1.1", virtualbox__intnet: "extnet", :netmask => "255.255.255.0"
+    mr.vm.network "private_network", ip: "10.0.0.1", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
+  end
+
+  # config.vm.define "SlaveRouter" do |sr|
+  #   sr.vm.hostname = "SlaveRouter"iptables -t filter -L FORWARD -n
+  #   sr.vm.provider "virtualbox" do |v|
+  #     v.name = "SlaveRouter"
+  #     v.memory = 512
+  #   end
+  #   sr.vm.network "private_network", ip: "192.168.1.2/24", virtualbox__intnet: true
+  #   sr.vm.network "private_network", ip: "10.0.0.2/24", virtualbox__intnet: true
+  # end
+end
+
+
+# Vagrant.configure("2") do |config|
+
+#   config.vm.box = "centos/7"
+  
+#   config.vm.provision :salt do |salt|
+#     salt.masterless = true
+#     # salt.minion_config = "salt/minion"
+#     salt.run_highstate = true
+#     salt.colorize = true
+#     salt.verbose = true
+#     salt.log_level = "warning"
+#     salt.pillar({
+#       "router" => {
+#           "firewall" => {
+#             "tcp" => [80],
+#             "udp" => [80]
+#           },
+#           "forward" => {
+#             "tcp" => [80],
+#             "udp" => [80]
+#           }
+#       }
+#     })
+#   end
+  
+  #######################################################################################
+  
+  # config.vm.define "Edge1" do |edge1|
+  #   edge1.vm.hostname = "edge1"
+
+  #   edge1.vm.network "private_network", ip: "192.168.1.1/24", nic_type: "virtio"
+  #   edge1.vm.network "private_network", ip: "10.0.0.1/24", virtualbox__intnet: "internal-affairs", nic_type: "virtio"
+  #   edge1.vm.network "private_network", ip: "192.168.212.1/30", virtualbox__intnet: true, nic_type: "virtio"
+  #   edge1.vm.provider "virtualbox" do |vb|
+  #       vb.memory = "256"
+  #       vb.name = "edge1"
+  #   end
+  # end
+  
+  #######################################################################################
+  
+    # config.vm.define "Edge2" do |edge2|
+    #   edge2.vm.hostname = "edge2"
+  
+    #   edge2.vm.network "private_network", ip: "192.168.23.6/24", nic_type: "virtio"
+    #   edge2.vm.network "private_network", ip: "172.23.0.251/24", virtualbox__intnet: "internal-affairs", nic_type: "virtio"
+    #   edge2.vm.network "private_network", ip: "192.168.212.2/30", virtualbox__intnet: "conntrack", nic_type: "virtio"
+    #   edge2.vm.provider "virtualbox" do |vb|
+    #       vb.memory = "256"
+    #       vb.name = "edge2"
+    #   end
+    # end
+  
+  #######################################################################################
+  
+    # config.vm.define "Introuter" do |introuter|
+    #   introuter.vm.hostname = "introuter"
+  
+    #   introuter.vm.network "private_network", ip: "192.168.123.254/24", virtualbox__intnet: "deepspace", nic_type: "virtio"
+    #   introuter.vm.network "private_network", ip: "172.23.0.10/24", virtualbox__intnet: "internal-affairs", nic_type: "virtio" 
+    #   introuter.vm.provider "virtualbox" do |vb|
+    #       vb.memory = "256"
+    #       vb.name = "introuter"
+    #   end
+  
+    #   #introuter.vm.provision :shell, :inline => "sudo systemctl disable salt-minion && sudo systemctl stop salt-minion"
+    # end
+  
+  #######################################################################################
+  
+  #   config.vm.define "Darkrouter" do |darkrouter|
+  #     darkrouter.vm.hostname = "darkrouter"
+  
+  #     darkrouter.vm.network "private_network", ip: "192.168.123.10/24", virtualbox__intnet: "deepspace", nic_type: "virtio"
+  #     darkrouter.vm.network "private_network", ip: "192.168.101.254/24", virtualbox__intnet: "darknet", nic_type: "virtio" 
+  #     darkrouter.vm.provider "virtualbox" do |vb|
+  #         vb.memory = "256"
+  #         vb.name = "darkrouter"
+  #     end
+  #     #darkrouter.vm.provision :shell, :inline => "sudo systemctl disable salt-minion && sudo systemctl stop salt-minion"
+  #   end
+  
+  #######################################################################################
+  
+  #   config.vm.define "Darkweb01" do |darkweb01|
+  #     darkweb01.vm.hostname = "darkweb01"
+  
+  #     darkweb01.vm.network "private_network", ip: "192.168.101.10/24", virtualbox__intnet: "darknet", nic_type: "virtio" 
+  #     darkweb01.vm.provider "virtualbox" do |vb|
+  #         vb.memory = "256"
+  #         vb.name = "darkweb01"
+  #     end
+  #   end
+  
+  #######################################################################################
+  
+  #   config.vm.define "Darkweb02" do |darkweb02|
+  #     darkweb02.vm.hostname = "darkweb02"
+  
+  #     darkweb02.vm.network "private_network", ip: "192.168.101.11/24", virtualbox__intnet: "darknet", nic_type: "virtio" 
+  #     darkweb02.vm.provider "virtualbox" do |vb|
+  #         vb.memory = "256"
+  #         vb.name = "darkweb02"
+  #     end
+  #   end
+    
+  #################################################################################
+
