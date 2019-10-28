@@ -15,4 +15,3 @@ echo "<VirtualHost *:80>
 sudo systemctl restart httpd
 sudo yum install curl -y
 sudo yum install tcpdump -y
-sudo ip link set eth0 down
