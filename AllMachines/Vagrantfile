@@ -58,37 +58,42 @@ Vagrant.configure("2") do |config|
   #   sr.vm.network "private_network", ip: "10.0.0.2/24", virtualbox__intnet: true
   # end
 
-  config.vm.define "Server1" do |s1|
-    s1.vm.hostname = "Server1"
+  config.vm.define "ServerMachine1" do |s1|
+    s1.vm.hostname = "ServerMachine1.ex1.gr4"
+    config.vm.synced_folder "./data", "/vagrant_data"
     s1.vm.provider "virtualbox" do |v|
-      v.name = "Server1"
+      v.name = "ServerMachine1"
       v.memory = 256
     end
     s1.vm.network "private_network", ip: "10.0.0.101", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     s1.vm.network "private_network", ip: "172.16.0.11", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     s1.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.101"
-    # s1.vm.provision "shell", run: "once", path: "Server1.sh"
+    s1.vm.provision "shell", run: "once", path: "Server1.sh"
   end
 
-  # config.vm.define "Server2" do |s2|
-  #   s2.vm.hostname = "Server2"
-  #   s2.vm.provider "virtualbox" do |v|
-  #     v.name = "Server2"
-  #     v.memory = 256
-  #   end
-  #   s2.vm.network "private_network", ip: "10.0.0.102", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
-  #   s2.vm.network "private_network", ip: "172.16.0.12", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-  #   s2.vm.provision "shell", run: "once", path: "Server2.sh"
-  # end
+  config.vm.define "ServerMachine2" do |s2|
+    s2.vm.hostname = "ServerMachine2.ex1.gr4"
+    config.vm.synced_folder "./data", "/vagrant_data"
+    s2.vm.provider "virtualbox" do |v|
+      v.name = "ServerMachine2"
+      v.memory = 256
+    end
+    s2.vm.network "private_network", ip: "10.0.0.102", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
+    s2.vm.network "private_network", ip: "172.16.0.12", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    s1.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.10"
+    s2.vm.provision "shell", run: "once", path: "Server2.sh"
+  end
 
-  # config.vm.define "Server3" do |s3|
-  #   s3.vm.hostname = "Server3"
-  #   s3.vm.provider "virtualbox" do |v|
-  #     v.name = "Server3"
-  #     v.memory = 256
-  #   end
-  #   s3.vm.network "private_network", ip: "10.0.0.102", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
-  #   s3.vm.network "private_network", ip: "172.16.0.13", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-  #   s3.vm.provision "shell", run: "once", path: "Server3.sh"
-  # end
+  config.vm.define "Server3" do |s3|
+    s3.vm.hostname = "ServerMachine3.ex1.gr4"
+    config.vm.synced_folder "./data", "/vagrant_data"
+    s3.vm.provider "virtualbox" do |v|
+      v.name = "ServerMachine3"
+      v.memory = 256
+    end
+    s3.vm.network "private_network", ip: "10.0.0.103", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
+    s3.vm.network "private_network", ip: "172.16.0.13", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    s1.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.103"
+    s3.vm.provision "shell", run: "once", path: "Server3.sh"
+  end
 end
