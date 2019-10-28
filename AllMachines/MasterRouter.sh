@@ -1,7 +1,7 @@
-sudo ip route add 10.0.1.0/24 via 192.168.1.3
-sudo ip route add 10.0.2.0/24 via 192.168.1.3
 sudo yum -y install tcpdump
 sudo yum -y install ipvsadm
+sudo echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
+sudo sysctl -p
 sudo touch /etc/sysconfig/ipvsadm
 sudo systemctl start ipvsadm
 sudo systemctl enable ipvsadm
