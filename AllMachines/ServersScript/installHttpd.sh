@@ -13,3 +13,6 @@ echo "<VirtualHost *:80>
     DocumentRoot /var/www/page.ex1.gr4/html
 </VirtualHost>" > /etc/httpd/sites/server1.ex1.gr4.conf
 sudo systemctl restart httpd
+sudo yum install curl -y
+sudo yum install tcpdump -y
+sudo ip link set eth0 down
