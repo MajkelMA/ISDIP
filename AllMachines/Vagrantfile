@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
       v.memory = 256
     end
     c1.vm.network "private_network", ip: "10.0.0.101", virtualbox__intnet: "netcl1", :netmask => "255.255.255.0"
-    c1.vm.provision "shell", run: "once", path: "Client1.sh"
-    c1.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s8"
+    c1.vm.provision "shell", run: "once", path: "client-scripts/client-1-conf.sh"
+    c1.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s8'"
   end
 
   # config.vm.define "Client2" do |c2|
@@ -22,8 +22,8 @@ Vagrant.configure("2") do |config|
   #     v.memory = 256
   #   end
   #   c2.vm.network "private_network", ip: "10.0.1.102", virtualbox__intnet: "netcl2", :netmask => "255.255.255.0"
-  #   c2.vm.provision "shell", run: "once", path: "Client2.sh"
-  #   c2.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s8"
+  #   c2.vm.provision "shell", run: "once", path: "client-scripts/client-2-conf.sh"
+  #   c2.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s8'"
   # end
 
   config.vm.define "ClientRouter" do |cr|
@@ -36,10 +36,10 @@ Vagrant.configure("2") do |config|
     cr.vm.network "private_network", bridge: "eth1", ip: "192.168.1.3", virtualbox__intnet: "extnet", :netmask => "255.255.255.0"
     cr.vm.network "private_network", bridge: "eth2", ip: "10.0.0.1", virtualbox__intnet: "netcl1", :netmask => "255.255.255.0"
     cr.vm.network "private_network", bridge: "eth3", ip: "10.0.1.1", virtualbox__intnet: "netcl2", :netmask => "255.255.255.0"
-    cr.vm.provision "shell", run: "once", path: "ClientRouter.sh"
-    cr.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s9"
-    cr.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth2 enp0s8"
-    cr.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth3 enp0s10"
+    cr.vm.provision "shell", run: "once", path: "client-router-conf.sh"
+    cr.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s9'"
+    cr.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth2' 'enp0s8'"
+    cr.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth3' 'enp0s10'"
   end
 
   config.vm.define "MasterRouter" do |mr|
@@ -50,9 +50,10 @@ Vagrant.configure("2") do |config|
     end
     mr.vm.network "private_network", ip: "192.168.1.1", virtualbox__intnet: "extnet", :netmask => "255.255.255.0"
     mr.vm.network "private_network", ip: "10.0.0.1", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
-    mr.vm.provision "shell", run: "always", path: "MasterRouter.sh"
-    mr.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s9"
-    mr.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth2 enp0s8"
+    mr.vm.provision "shell", run: "once", path: "load-balancer-scripts/master-router-conf.sh"
+    mr.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s9'"
+    mr.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth2' 'enp0s8'"
+    mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-listing.sh"
   end
 
   # config.vm.define "SlaveRouter" do |sr|
@@ -74,10 +75,10 @@ Vagrant.configure("2") do |config|
     end
     s1.vm.network "private_network", ip: "10.0.0.101", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     s1.vm.network "private_network", ip: "172.16.0.11", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-    s1.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.101"
-    s1.vm.provision "shell", run: "once", path: "ServersScript/Server1.sh"
-    s1.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s8"
-    s1.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth2 enp0s9"
+    s1.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.101"
+    s1.vm.provision "shell", run: "always", path: "server-scripts/server-1-listing.sh"
+    s1.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s8'"
+    s1.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth2' 'enp0s9'"
   end
 
   config.vm.define "ServerMachine2" do |s2|
@@ -89,10 +90,10 @@ Vagrant.configure("2") do |config|
     end
     s2.vm.network "private_network", ip: "10.0.0.102", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     s2.vm.network "private_network", ip: "172.16.0.12", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-    s2.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.102"
-    s2.vm.provision "shell", run: "once", path: "ServersScript/Server2.sh"
-    s2.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s8"
-    s2.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth2 enp0s9"
+    s2.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.102"
+    s2.vm.provision "shell", run: "always", path: "server-scripts/server-2-listing.sh"
+    s2.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s8'"
+    s2.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth2' 'enp0s9'"
   end
 
   config.vm.define "ServerMachine3" do |s3|
@@ -104,9 +105,9 @@ Vagrant.configure("2") do |config|
     end
     s3.vm.network "private_network", ip: "10.0.0.103", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     s3.vm.network "private_network", ip: "172.16.0.13", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
-    s3.vm.provision "shell", run: "once", path: "ServersScript/installHttpd.sh", args: "10.0.0.103"
-    s3.vm.provision "shell", run: "once", path: "ServersScript/Server3.sh"
-    s3.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth1 enp0s8"
-    s3.vm.provision "shell", run: "once", path: "CommonScripts/changeInterfaceName.sh", args: "eth2 enp0s9"
+    s3.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.103"
+    s3.vm.provision "shell", run: "always", path: "server-scripts/server-3-listing.sh"
+    s3.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth1' 'enp0s8'"
+    s3.vm.provision "shell", run: "once", path: "common-scripts/change-interface-name.sh", args: "'eth2' 'enp0s9'"
   end
 end
