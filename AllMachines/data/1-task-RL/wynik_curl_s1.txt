@@ -1,0 +1,1 @@
+<html><head><title>Zad 1</title><body>Strona na {10.0.0.101}</body></head> </html>
