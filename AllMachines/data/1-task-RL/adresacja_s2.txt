@@ -11,18 +11,14 @@
     inet6 fe80::5054:ff:fe8a:fee6/64 scope link 
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:f2:ec:fb brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.1/24 brd 192.168.1.255 scope global noprefixroute eth1
+    link/ether 08:00:27:4f:8c:54 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.102/24 brd 10.0.0.255 scope global noprefixroute eth1
        valid_lft forever preferred_lft forever
-    inet 192.168.1.100/24 brd 192.168.1.255 scope global secondary eth1:1
-       valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fef2:ecfb/64 scope link 
+    inet6 fe80::a00:27ff:fe4f:8c54/64 scope link 
        valid_lft forever preferred_lft forever
 4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:19:ca:6a brd ff:ff:ff:ff:ff:ff
-    inet 10.0.0.1/24 brd 10.0.0.255 scope global noprefixroute eth2
+    link/ether 08:00:27:f4:16:08 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.0.12/24 brd 172.16.0.255 scope global noprefixroute eth2
        valid_lft forever preferred_lft forever
-    inet 10.0.0.100/24 brd 10.0.0.255 scope global secondary eth2:1
-       valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe19:ca6a/64 scope link 
+    inet6 fe80::a00:27ff:fef4:1608/64 scope link 
        valid_lft forever preferred_lft forever
