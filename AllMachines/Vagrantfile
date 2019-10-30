@@ -41,6 +41,7 @@ Vagrant.configure("2") do |config|
     cr.vm.network "private_network", bridge: "eth3", ip: "10.0.1.1", virtualbox__intnet: "netcl2", :netmask => "255.255.255.0"
     # scripts
     cr.vm.provision "shell", run: "once", path: "router-scripts/client-router-conf.sh"
+    cr.vm.provision "shell", run: "always", path: "router-scripts/client-router-up.sh"
   end
 
   config.vm.define "MasterRouter" do |mr|
