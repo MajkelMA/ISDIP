@@ -1,0 +1,14 @@
+external (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth1
+  sources: 
+  services: ssh
+  ports: 
+  protocols: 
+  masquerade: yes
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	

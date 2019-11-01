@@ -1,0 +1,14 @@
+internal (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth2
+  sources: 
+  services: ssh mdns samba-client dhcpv6-client
+  ports: 
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
