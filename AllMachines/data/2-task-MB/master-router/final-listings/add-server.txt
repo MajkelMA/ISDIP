@@ -1,0 +1,31 @@
+[root@MasterRouter sysconfig]# ipvsadm -l
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  MasterRouter:http wrr
+  -> 10.0.0.101:http              Masq    10     0          0
+  -> 10.0.0.102:http              Masq    20     0          0
+[root@MasterRouter sysconfig]# ipvsadm -l
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  MasterRouter:http wrr
+  -> 10.0.0.101:http              Masq    10     0          282
+  -> 10.0.0.102:http              Masq    20     0          565
+[root@MasterRouter sysconfig]# ipvsadm -a -t 192.168.1.100:80 -r 10.0.0.103:80 -w 10 -m
+[root@MasterRouter sysconfig]# ipvsadm -l
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  MasterRouter:http wrr
+  -> 10.0.0.101:http              Masq    10     0          1343
+  -> 10.0.0.102:http              Masq    20     0          2686
+  -> 10.0.0.103:http              Masq    10     0          764
+[root@MasterRouter sysconfig]# ipvsadm -l
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  MasterRouter:http wrr
+  -> 10.0.0.101:http              Masq    10     0          1894
+  -> 10.0.0.102:http              Masq    20     0          3790
+  -> 10.0.0.103:http              Masq    10     0          1316

@@ -1,0 +1,2 @@
+[root@MasterRouter vagrant]# ipvsadm -v
+ipvsadm v1.27 2008/5/15 (compiled with popt and IPVS v1.2.1)

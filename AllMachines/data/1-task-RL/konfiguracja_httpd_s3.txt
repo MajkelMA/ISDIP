@@ -3,14 +3,14 @@ VirtualHost configuration:
 ServerRoot: "/etc/httpd"
 Main DocumentRoot: "/var/www/html"
 Main ErrorLog: "/etc/httpd/logs/error_log"
-Mutex proxy-balancer-shm: using_defaults
-Mutex rewrite-map: using_defaults
-Mutex authdigest-client: using_defaults
-Mutex proxy: using_defaults
 Mutex authn-socache: using_defaults
 Mutex default: dir="/run/httpd/" mechanism=default 
 Mutex mpm-accept: using_defaults
 Mutex authdigest-opaque: using_defaults
+Mutex proxy-balancer-shm: using_defaults
+Mutex rewrite-map: using_defaults
+Mutex authdigest-client: using_defaults
+Mutex proxy: using_defaults
 PidFile: "/run/httpd/httpd.pid"
 Define: _RH_HAS_HTTPPROTOCOLOPTIONS
 Define: DUMP_VHOSTS

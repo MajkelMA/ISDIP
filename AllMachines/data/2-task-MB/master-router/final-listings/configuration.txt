@@ -1,0 +1,65 @@
+[root@MasterRouter vagrant]# yum -y install ipvsadm 
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: ftp.icm.edu.pl
+ * extras: ftp.icm.edu.pl
+ * updates: ftp.icm.edu.pl
+Resolving Dependencies
+--> Running transaction check
+---> Package ipvsadm.x86_64 0:1.27-7.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package           Arch             Version                Repository      Size
+================================================================================
+Installing:
+ ipvsadm           x86_64           1.27-7.el7             base            45 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 45 k
+Installed size: 75 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : ipvsadm-1.27-7.el7.x86_64                                    1/1 
+  Verifying  : ipvsadm-1.27-7.el7.x86_64                                    1/1 
+
+Installed:
+  ipvsadm.x86_64 0:1.27-7.el7                                                   
+
+Complete!
+[root@MasterRouter vagrant]# echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf 
+
+[root@MasterRouter vagrant]# ip addr add 192.168.1.100/24 broadcast 192.168.1.255 dev eth1 label eth1:1 
+
+[root@MasterRouter vagrant]# ip addr add 10.0.0.100/24 broadcast 10.0.0.255 dev eth2 label eth2:1 
+
+[root@MasterRouter vagrant]# sysctl -p
+net.ipv4.ip_forward = 1
+
+[root@MasterRouter vagrant]# systemctl stop firewalld 
+
+[root@MasterRouter vagrant]# systemctl disable firewalld 
+
+[root@MasterRouter vagrant]# touch /etc/sysconfig/ipvsadm 
+
+[root@MasterRouter vagrant]# systemctl start ipvsadm 
+
+[root@MasterRouter vagrant]# systemctl enable ipvsadm 
+
+[root@MasterRouter vagrant]# ipvsadm -C 
+
+[root@MasterRouter vagrant]# ipvsadm -A -t 192.168.1.100:80 -s wrr 
+
+[root@MasterRouter vagrant]# ipvsadm -a -t 192.168.1.100:80 -r 10.0.0.101:80 -w 10 -m 
+
+[root@MasterRouter vagrant]# ipvsadm -a -t 192.168.1.100:80 -r 10.0.0.102:80 -w 20 -m 
+
+[root@MasterRouter vagrant]# ipvsadm -a -t 192.168.1.100:80 -r 10.0.0.103:80 -w 10 -m 
