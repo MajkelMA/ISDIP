@@ -15,7 +15,8 @@ Vagrant.configure("2") do |config|
     c1.vm.network "private_network", ip: "10.0.0.101", virtualbox__intnet: "netcl1", :netmask => "255.255.255.0"
     # scripts
     c1.vm.provision "shell", run: "always", path: "client-scripts/client-1-up.sh"
-	c1.vm.provision "shell", run: "always", path: "client-scripts/client-1-listing.sh"
+    c1.vm.provision "shell", run: "always", path: "client-scripts/client-1-listing.sh"
+    c1.vm.provision "shell", run: "always", path: "client-scripts/client-1-firewall-listing.sh"
   end
 
   config.vm.define "Client2" do |c2|
@@ -58,10 +59,11 @@ Vagrant.configure("2") do |config|
     mr.vm.network "private_network", ip: "10.0.0.1", virtualbox__intnet: "intnet", :netmask => "255.255.255.0"
     # scripts
     mr.vm.provision "shell", run: "once", path: "load-balancer-scripts/master-router-conf.sh"
+    mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-firewall.sh"
     mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-up.sh"
-    mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-listing.sh"
+    mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-firewall-listing.sh"
+    # mr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-listing.sh"
   end
-
   # config.vm.define "SlaveRouter" do |sr|
   #   sr.vm.hostname = "SlaveRouter"iptables -t filter -L FORWARD -n
   #   sr.vm.provider "virtualbox" do |v|
@@ -84,6 +86,7 @@ Vagrant.configure("2") do |config|
     # scripts
     s1.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.101"
     s1.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
+    s1.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
     s1.vm.provision "shell", run: "always", path: "server-scripts/server-1-listing.sh"
   end
 
@@ -99,6 +102,7 @@ Vagrant.configure("2") do |config|
     # scripts
     s2.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.102"
     s2.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
+    s2.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
     s2.vm.provision "shell", run: "always", path: "server-scripts/server-2-listing.sh"
   end
 
@@ -114,6 +118,7 @@ Vagrant.configure("2") do |config|
     # scripts
     s3.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.103"
     s3.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
+    s3.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
     s3.vm.provision "shell", run: "always", path: "server-scripts/server-3-listing.sh"
   end
 end

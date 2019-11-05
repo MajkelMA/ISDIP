@@ -1,0 +1,6 @@
+internal
+  interfaces: eth2
+external
+  interfaces: eth1
+public
+  interfaces: eth0

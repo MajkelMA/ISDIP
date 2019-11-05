@@ -1,0 +1,1 @@
+ipv4 filter FORWARD 0 -i eth2 -o eth1 -j ACCEPT
