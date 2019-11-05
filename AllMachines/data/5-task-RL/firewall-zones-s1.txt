@@ -1,4 +1,2 @@
-dmz
-  interfaces: eth1 eth2
 public
-  interfaces: eth0
+  interfaces: eth0 eth1 eth2

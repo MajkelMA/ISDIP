@@ -13,10 +13,10 @@ block
   rich rules: 
 	
 
-dmz (active)
+dmz
   target: default
   icmp-block-inversion: no
-  interfaces: eth1 eth2
+  interfaces: 
   sources: 
   services: ssh http
   ports: 
@@ -91,7 +91,7 @@ internal
 public (active)
   target: default
   icmp-block-inversion: no
-  interfaces: eth0
+  interfaces: eth0 eth1 eth2
   sources: 
   services: ssh dhcpv6-client
   ports: 

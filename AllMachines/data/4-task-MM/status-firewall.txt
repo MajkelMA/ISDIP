@@ -1,17 +1,14 @@
 ● firewalld.service - firewalld - dynamic firewall daemon
    Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2019-11-05 19:10:09 UTC; 16s ago
+   Active: active (running) since Tue 2019-11-05 15:44:26 UTC; 33s ago
      Docs: man:firewalld(1)
- Main PID: 30453 (firewalld)
+ Main PID: 2168 (firewalld)
    CGroup: /system.slice/firewalld.service
-           └─30453 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid
+           └─2168 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid
 
-Nov 05 19:10:08 ClientRouter1 systemd[1]: Starting firewalld - dynamic firewall daemon...
-Nov 05 19:10:09 ClientRouter1 systemd[1]: Started firewalld - dynamic firewall daemon.
-Nov 05 19:10:13 ClientRouter1 firewalld[30453]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f02c2b94140>(('public', 'eth1')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth1': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth1'
-Nov 05 19:10:13 ClientRouter1 firewalld[30453]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f02c2b94140>(('public', 'eth2')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth2': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth2'
-Nov 05 19:10:13 ClientRouter1 firewalld[30453]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f02c2b94140>(('public', 'eth3')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth3': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth3'
-Nov 05 19:10:16 ClientRouter1 firewalld[30453]: WARNING: ALREADY_ENABLED: masquerade
-Nov 05 19:10:21 ClientRouter1 firewalld[30453]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f02c2b94140>(('public', 'eth1')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth1': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth1'
-Nov 05 19:10:21 ClientRouter1 firewalld[30453]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f02c2b94140>(('public', 'eth2')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth2': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth2'
-Nov 05 19:10:23 ClientRouter1 firewalld[30453]: WARNING: ALREADY_ENABLED: masquerade
+Nov 05 15:44:22 ClientRouter1 systemd[1]: Starting firewalld - dynamic firewall daemon...
+Nov 05 15:44:26 ClientRouter1 systemd[1]: Started firewalld - dynamic firewall daemon.
+Nov 05 15:44:55 ClientRouter1 firewalld[2168]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7fde9e9b6140>(('public', 'eth1')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth1': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth1'
+Nov 05 15:44:55 ClientRouter1 firewalld[2168]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7fde9e9b6140>(('public', 'eth2')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth2': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth2'
+Nov 05 15:44:55 ClientRouter1 firewalld[2168]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7fde9e9b6140>(('public', 'eth3')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth3': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth3'
+Nov 05 15:44:58 ClientRouter1 firewalld[2168]: WARNING: ALREADY_ENABLED: masquerade

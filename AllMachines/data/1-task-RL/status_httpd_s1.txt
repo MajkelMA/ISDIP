@@ -1,18 +1,17 @@
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Tue 2019-11-05 19:07:40 UTC; 28s ago
+   Active: active (running) since Tue 2019-11-05 15:42:16 UTC; 17s ago
      Docs: man:httpd(8)
            man:apachectl(8)
- Main PID: 30177 (httpd)
+ Main PID: 2885 (httpd)
    Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
    CGroup: /system.slice/httpd.service
-           ├─30177 /usr/sbin/httpd -DFOREGROUND
-           ├─30178 /usr/sbin/httpd -DFOREGROUND
-           ├─30179 /usr/sbin/httpd -DFOREGROUND
-           ├─30180 /usr/sbin/httpd -DFOREGROUND
-           ├─30181 /usr/sbin/httpd -DFOREGROUND
-           └─30182 /usr/sbin/httpd -DFOREGROUND
+           ├─2885 /usr/sbin/httpd -DFOREGROUND
+           ├─2935 /usr/sbin/httpd -DFOREGROUND
+           ├─2936 /usr/sbin/httpd -DFOREGROUND
+           ├─2937 /usr/sbin/httpd -DFOREGROUND
+           ├─2938 /usr/sbin/httpd -DFOREGROUND
+           └─2939 /usr/sbin/httpd -DFOREGROUND
 
-Nov 05 19:07:39 ServerMachine1.ex1.gr4 systemd[1]: Stopped The Apache HTTP Server.
-Nov 05 19:07:39 ServerMachine1.ex1.gr4 systemd[1]: Starting The Apache HTTP Server...
-Nov 05 19:07:40 ServerMachine1.ex1.gr4 systemd[1]: Started The Apache HTTP Server.
+Nov 05 15:42:14 ServerMachine1.ex1.gr4 systemd[1]: Starting The Apache HTTP Server...
+Nov 05 15:42:16 ServerMachine1.ex1.gr4 systemd[1]: Started The Apache HTTP Server.
