@@ -1,0 +1,4 @@
+dmz
+  interfaces: eth1 eth2
+public
+  interfaces: eth0
