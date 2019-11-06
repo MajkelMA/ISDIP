@@ -1,0 +1,2 @@
+[root@SlaveRouter vagrant]# sysctl -p
+net.ipv4.ip_forward = 1

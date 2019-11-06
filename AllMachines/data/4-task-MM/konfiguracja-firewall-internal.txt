@@ -6,7 +6,7 @@ internal (active)
   services: ssh mdns samba-client dhcpv6-client
   ports: 
   protocols: 
-  masquerade: no
+  masquerade: yes
   forward-ports: 
   source-ports: 
   icmp-blocks: 

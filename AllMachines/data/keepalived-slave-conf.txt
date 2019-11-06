@@ -1,0 +1,61 @@
+! Configuration File for keepalived
+
+global_defs {
+    router_id SLAVE-ROUTER
+    lvs_flush
+}
+
+vrrp_sync_group VG {
+    group {
+        VI_1
+        VI_2
+    }
+}
+
+vrrp_instance VI_1 {
+    state SLAVE
+    interface eth1
+    virtual_router_id 51
+    priority 50
+    virtual_ipaddress {
+        192.168.1.100/24
+    }
+}
+
+vrrp_instance VI_2 {
+    state SLAVE
+    interface eth2
+    virtual_router_id 52
+    priority 50
+    virtual_ipaddress {
+        10.0.0.100/24
+    }
+}
+
+virtual_server 192.168.1.100 80 {
+    delay_loop 3
+    lb_algo wrr
+    lb_kind NAT
+    protocol TCP
+
+    real_server 10.0.0.101 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 1
+        }
+    }
+
+    real_server 10.0.0.102 80 {
+        weight 2
+        TCP_CHECK {
+            connect_timeout 1
+        }
+    }
+    
+    real_server 10.0.0.103 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 1
+        }
+    }
+}
