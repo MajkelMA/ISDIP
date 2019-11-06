@@ -117,4 +117,66 @@ Vagrant.configure("2") do |config|
     s3.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
     s3.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
   end
+
+  #Cluster Install
+  config.vm.define "ClusterMachine1" do |cm1|
+    cm1.vm.hostname = "ClusterMachine1.ex1.gr4"
+    cm1.vm.provider "virtualbox" do |v|
+      v.name = "ClusterMachine1"
+      v.memory = 256
+    end
+    #networks
+    cm1.vm.network "private_network", ip: "172.16.0.1", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    #scripts
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+  end
+
+  
+  config.vm.define "ClusterMachine2" do |cm2|
+    cm2.vm.hostname = "ClusterMachine2.ex1.gr4"
+    cm2.vm.provider "virtualbox" do |v|
+      v.name = "ClusterMachine2"
+      v.memory = 256
+    end
+    #networks
+    cm2.vm.network "private_network", ip: "172.16.0.2", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    #scripts
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+  end
+
+
+  
+  config.vm.define "ClusterMachine3" do |cm3|
+    cm3.vm.hostname = "ClusterMachine3.ex1.gr4"
+    cm3.vm.provider "virtualbox" do |v|
+      v.name = "ClusterMachine3"
+      v.memory = 256
+    end
+    #networks
+    cm3.vm.network "private_network", ip: "172.16.0.3", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    #scripts
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+  end
+
+
+ 
+  config.vm.define "ClusterMachine4" do |cm4|
+    cm4.vm.hostname = "ClusterMachine4.ex1.gr4"
+    cm4.vm.provider "virtualbox" do |v|
+      v.name = "ClusterMachine4"
+      v.memory = 256
+    end
+    #networks
+    cm4.vm.network "private_network", ip: "172.16.0.4", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
+    #scripts
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+  end
 end
