@@ -7,18 +7,18 @@
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 52:54:00:8a:fe:e6 brd ff:ff:ff:ff:ff:ff
     inet 10.0.2.15/24 brd 10.0.2.255 scope global noprefixroute dynamic eth0
-       valid_lft 86397sec preferred_lft 86397sec
+       valid_lft 86367sec preferred_lft 86367sec
     inet6 fe80::5054:ff:fe8a:fee6/64 scope link 
        valid_lft forever preferred_lft forever
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:4f:8c:54 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:d9:a8:91 brd ff:ff:ff:ff:ff:ff
     inet 10.0.0.102/24 brd 10.0.0.255 scope global noprefixroute eth1
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fe4f:8c54/64 scope link 
+    inet6 fe80::a00:27ff:fed9:a891/64 scope link 
        valid_lft forever preferred_lft forever
 4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:f4:16:08 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:00:27:ff:06:04 brd ff:ff:ff:ff:ff:ff
     inet 172.16.0.12/24 brd 172.16.0.255 scope global noprefixroute eth2
        valid_lft forever preferred_lft forever
-    inet6 fe80::a00:27ff:fef4:1608/64 scope link 
+    inet6 fe80::a00:27ff:feff:604/64 scope link 
        valid_lft forever preferred_lft forever

@@ -27,4 +27,5 @@
     inet 10.0.1.1/24 brd 10.0.1.255 scope global noprefixroute eth3
        valid_lft forever preferred_lft forever
     inet6 fe80::a00:27ff:feef:446a/64 scope link 
+
        valid_lft forever preferred_lft forever

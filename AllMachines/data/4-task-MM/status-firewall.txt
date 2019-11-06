@@ -12,3 +12,4 @@ Nov 05 20:07:36 ClientRouter1 firewalld[1817]: ERROR: Calling post func <functio
 Nov 05 20:07:36 ClientRouter1 firewalld[1817]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f92301cf140>(('public', 'eth2')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth2': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth2'
 Nov 05 20:07:36 ClientRouter1 firewalld[1817]: ERROR: Calling post func <function ifcfg_set_zone_of_interface at 0x7f92301cf140>(('public', 'eth3')) failed: Failed to create '/etc/sysconfig/network-scripts/ifcfg-eth3': [Errno 13] Permission denied: '/etc/sysconfig/network-scripts/ifcfg-eth3'
 Nov 05 20:07:38 ClientRouter1 firewalld[1817]: WARNING: ALREADY_ENABLED: masquerade
+
