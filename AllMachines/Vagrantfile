@@ -6,6 +6,25 @@ Vagrant.configure("2") do |config|
   config.vm.box = "th7nder/isdp-quick-centos"
   config.vm.synced_folder "./data", "/vagrant_data"
 
+  def create_gluster_node(config, name, ip)
+  config.vm.define name, autostart: false do |cfg|
+      add_storage(cfg, "./disk-#{name}.vdi", 10)
+      cfg.vm.hostname = name
+      cfg.vm.provision "shell", path: "gluster.sh"
+      cfg.vm.network :private_network, ip: ip, netmask: "255.255.255.0", virtualbox__intnet: "FSNetwork"
+    end
+  end
+
+def add_storage(target, disk, size)
+  target.vm.provider "virtualbox" do |vb|
+    unless File.exist?(disk)
+      vb.customize ['createhd', '--filename', disk, '--variant', 'Fixed', '--size', size * 1024]
+    end
+    vb.customize ['storageattach', :id,  '--storagectl', 'IDE', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
+  end
+end
+
+
   config.vm.define "ClientMachine1" do |c1|
     c1.vm.hostname = "ClientMachine1"
     c1.vm.provider "virtualbox" do |v|
@@ -120,6 +139,7 @@ Vagrant.configure("2") do |config|
 
   #Cluster Install
   config.vm.define "ClusterMachine1" do |cm1|
+    add_storage(cm1, "./disk1.vdi", 3)
     cm1.vm.hostname = "ClusterMachine1.ex1.gr4"
     cm1.vm.provider "virtualbox" do |v|
       v.name = "ClusterMachine1"
@@ -131,10 +151,13 @@ Vagrant.configure("2") do |config|
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh", args: "1"
   end
 
   
   config.vm.define "ClusterMachine2" do |cm2|
+    add_storage(cm2, "./disk2.vdi", 3)
     cm2.vm.hostname = "ClusterMachine2.ex1.gr4"
     cm2.vm.provider "virtualbox" do |v|
       v.name = "ClusterMachine2"
@@ -146,11 +169,14 @@ Vagrant.configure("2") do |config|
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh", args: "2"
   end
 
 
   
   config.vm.define "ClusterMachine3" do |cm3|
+    add_storage(cm3, "./disk3.vdi", 3)
     cm3.vm.hostname = "ClusterMachine3.ex1.gr4"
     cm3.vm.provider "virtualbox" do |v|
       v.name = "ClusterMachine3"
@@ -162,13 +188,16 @@ Vagrant.configure("2") do |config|
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh", args: "3"
   end
 
 
  
   config.vm.define "ClusterMachine4" do |cm4|
+    add_storage(cm4, "./disk4.vdi", 3)
     cm4.vm.hostname = "ClusterMachine4.ex1.gr4"
-    cm4.vm.provider "virtualbox" do |v|
+    cm4.vm.provider "virtualbox" do |v| 
       v.name = "ClusterMachine4"
       v.memory = 256
     end
@@ -178,5 +207,18 @@ Vagrant.configure("2") do |config|
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluste-peer.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh", args: "4"
   end
 end
+
+# def add_storage(target, disk, size, name)
+#   target.vm.provider "virtualbox" do |vb|
+#     unless File.exist?(disk)
+#       vb.customize ['createhd', '--filename', disk, '--variant', 'Fixed', '--size', size * 1024]
+#     end
+#     vb.customize ['storagectl', :id, '--name', 'IDE', '--add', 'sata', '--portcount', 4]
+#     vb.customize ['storageattach', :id,  '--storagectl', 'IDE', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
+#   end
+# end
