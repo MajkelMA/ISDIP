@@ -61,7 +61,7 @@ end
     cr.vm.network "private_network", ip: "10.0.1.1", virtualbox__intnet: "netcl2", :netmask => "255.255.255.0"
     # scripts
     cr.vm.provision "shell", run: "once", path: "router-scripts/client-router-conf.sh"
-    cr.vm.provision "shell", run: "always", path: "router-scripts/client-router-up.sh"
+    # cr.vm.provision "shell", run: "always", path: "router-scripts/client-router-up.sh"
   end
 
   config.vm.define "MasterRouter" do |mr|
@@ -90,6 +90,7 @@ end
     # scripts
     sr.vm.provision "shell", run: "once", path: "load-balancer-scripts/slave-router-conf.sh"
     sr.vm.provision "shell", run: "always", path: "load-balancer-scripts/master-router-firewall.sh"
+	sr.vm.provision "shell", run: "always", path: "load-balancer-scripts/slave-router-listing.sh"
   end
 
   config.vm.define "ServerMachine1" do |s1|

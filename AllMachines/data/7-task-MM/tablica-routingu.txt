@@ -1,0 +1,7 @@
+default via 10.0.2.2 dev eth0 
+10.0.0.0/24 dev eth2 proto kernel scope link src 10.0.0.2 
+10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 
+169.254.0.0/16 dev eth0 scope link metric 1002 
+169.254.0.0/16 dev eth1 scope link metric 1003 
+169.254.0.0/16 dev eth2 scope link metric 1004 
+192.168.1.0/24 dev eth1 proto kernel scope link src 192.168.1.2 

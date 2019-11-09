@@ -15,6 +15,7 @@ vrrp_sync_group VG {
 vrrp_instance VI_1 {
     state MASTER
     interface eth1
+    lvs_sync_daemon_interface enp0s9
     virtual_router_id 51
     priority 150
     virtual_ipaddress {
@@ -25,6 +26,7 @@ vrrp_instance VI_1 {
 vrrp_instance VI_2 {
     state MASTER
     interface eth2
+    lvs_sync_daemon_interface enp0s8
     virtual_router_id 52
     priority 150
     virtual_ipaddress {
