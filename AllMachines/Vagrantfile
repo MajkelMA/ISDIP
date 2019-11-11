@@ -190,7 +190,7 @@ end
     # scripts
     s1.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.101"
     s1.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
-    s1.vm.provision "shell", run: "once", path: "server-scripts/sychronize-time.sh"
+    s1.vm.provision "shell", run: "always", path: "server-scripts/server-etc-hosts.sh"
     s1.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
   end
 
@@ -206,7 +206,7 @@ end
     # scripts
     s2.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.102"
     s2.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
-    s2.vm.provision "shell", run: "once", path: "server-scripts/sychronize-time.sh"
+    s2.vm.provision "shell", run: "always", path: "server-scripts/server-etc-hosts.sh"
     s2.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
   end
 
@@ -222,7 +222,7 @@ end
     # scripts
     s3.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.103"
     s3.vm.provision "shell", run: "always", path: "server-scripts/servers-firewall.sh"
-    s3.vm.provision "shell", run: "once", path: "server-scripts/sychronize-time.sh"
+    s3.vm.provision "shell", run: "always", path: "server-scripts/server-etc-hosts.sh"
     s3.vm.provision "shell", run: "always", path: "server-scripts/servers-up.sh"
   end
 
