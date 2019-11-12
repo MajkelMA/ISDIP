@@ -1,6 +1,9 @@
 sudo modprobe fuse
 sudo yum -y install centos-release-gluster
 sudo sudo yum -y install openssh-server wget fuse fuse-libs openib libibverbs
+sudo yum install curl -y
+sudo yum install tcpdump -y
+sudo yum install nano -y
 sudo firewall-cmd --add-service=glusterfs 
 sudo firewall-cmd --add-service=glusterfs --permanent
 sudo yum -y install glusterfs
