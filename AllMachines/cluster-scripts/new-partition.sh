@@ -1,4 +1,4 @@
-fdisk /dev/sdb <<EOF
+sudo fdisk /dev/sdb <<EOF
 g
 n
 p

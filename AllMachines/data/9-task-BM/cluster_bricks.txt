@@ -1,0 +1,95 @@
+Status of volume: wol_grupa4
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6677                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6706                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6681                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6701                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+ 
+Status of volume: wol_grupa4
+Gluster process                             TCP Port  RDMA Port  Online  Pid
+------------------------------------------------------------------------------
+Brick ClusterMachine1.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6677 
+Brick ClusterMachine2.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6706 
+Brick ClusterMachine3.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6681 
+Brick ClusterMachine4.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6701 
+Self-heal Daemon on localhost               N/A       N/A        Y       6722 
+Self-heal Daemon on ClusterMachine1.ex1.gr4 N/A       N/A        Y       6698 
+Self-heal Daemon on ClusterMachine3.ex1.gr4 N/A       N/A        Y       6702 
+Self-heal Daemon on ClusterMachine2.ex1.gr4 N/A       N/A        Y       6727 
+ 
+Task Status of Volume wol_grupa4
+------------------------------------------------------------------------------
+There are no active volume tasks
+ 
+ 
+Volume Name: wol_grupa4
+Type: Replicate
+Volume ID: 36a9d804-9bff-4d3e-aca7-3c6b488e871a
+Status: Started
+Snapshot Count: 0
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+Brick2: ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+Brick3: ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+Brick4: ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+Options Reconfigured:
+transport.address-family: inet
+nfs.disable: on
+performance.client-io-threads: off

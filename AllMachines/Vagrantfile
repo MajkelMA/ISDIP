@@ -104,13 +104,11 @@ end
     #networks
     cm1.vm.network "private_network", ip: "172.16.0.1", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     #scripts
-    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
-    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/sychronize-time.sh"
-    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
+    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
 
   
@@ -124,13 +122,11 @@ end
     #networks
     cm2.vm.network "private_network", ip: "172.16.0.2", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     #scripts
-    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
-    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/sychronize-time.sh"
-    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
+    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
 
 
@@ -145,13 +141,11 @@ end
     #networks
     cm3.vm.network "private_network", ip: "172.16.0.3", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     #scripts
-    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
-    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/sychronize-time.sh"
-    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
+    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
 
 
@@ -166,15 +160,13 @@ end
     #networks
     cm4.vm.network "private_network", ip: "172.16.0.4", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     #scripts
-    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/disable-firewall.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
-    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/sychronize-time.sh"
-    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/write-to-etchosts.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluste-peer.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
+    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
 
 

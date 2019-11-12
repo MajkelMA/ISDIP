@@ -1,0 +1,8 @@
+/bricks/gluster_brick:
+/dev/sdb1      xfs       2.0G   33M  2.0G   2% /bricks/gluster_brick
+/bricks/gluster_brick:
+/dev/sdb1      xfs       2.0G   33M  2.0G   2% /bricks/gluster_brick
+/bricks/gluster_brick:
+/dev/sdb1      xfs       2.0G   33M  2.0G   2% /bricks/gluster_brick
+/bricks/gluster_brick:
+/dev/sdb1      xfs       2.0G   33M  2.0G   2% /bricks/gluster_brick
