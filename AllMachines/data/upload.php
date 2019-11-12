@@ -10,6 +10,5 @@
         else{
             echo "err";
         }
-        print_r($_FILES);
     }
 ?>
