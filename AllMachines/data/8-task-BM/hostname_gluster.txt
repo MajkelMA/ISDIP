@@ -30,3 +30,7 @@ ClusterMachine1.ex1.gr4
 ClusterMachine2.ex1.gr4
 ClusterMachine3.ex1.gr4
 ClusterMachine4.ex1.gr4
+ClusterMachine1.ex1.gr4
+ClusterMachine2.ex1.gr4
+ClusterMachine3.ex1.gr4
+ClusterMachine4.ex1.gr4
