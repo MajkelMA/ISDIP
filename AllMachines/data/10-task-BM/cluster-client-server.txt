@@ -1,0 +1,28 @@
+sudo df -Th | grep gluster
+172.16.0.4:/wol_grupa4 fuse.glusterfs  2.0G   53M  2.0G   3% /mnt/glusterfs
+sudo ls -l /mnt/glusterfs/www/page.ex1.gr4/html
+total 1
+-rwxrwxr-x 1 root root 242 Nov 13 13:34 index.html
+drwxrwxrwx 2 root root   6 Nov 13 13:34 upload
+-rwxrwxr-x 1 root root 472 Nov 13 13:34 upload.php
+sudo df -Th | grep gluster
+172.16.0.4:/wol_grupa4 fuse.glusterfs  2.0G   53M  2.0G   3% /mnt/glusterfs
+sudo ls -l /mnt/glusterfs/www/page.ex1.gr4/html
+total 1
+-rwxrwxr-x 1 root root 242 Nov 13 13:34 index.html
+drwxrwxrwx 2 root root   6 Nov 13 13:34 upload
+-rwxrwxr-x 1 root root 472 Nov 13 13:34 upload.php
+sudo df -Th | grep gluster
+172.16.0.4:/wol_grupa4 fuse.glusterfs  2.0G   53M  2.0G   3% /mnt/glusterfs
+sudo ls -l /mnt/glusterfs/www/page.ex1.gr4/html
+total 1
+-rwxrwxr-x 1 root root 242 Nov 13 13:34 index.html
+drwxrwxrwx 2 root root   6 Nov 13 13:34 upload
+-rwxrwxr-x 1 root root 472 Nov 13 13:34 upload.php
+sudo df -Th | grep gluster
+172.16.0.4:/wol_grupa4 fuse.glusterfs  2.0G   53M  2.0G   3% /mnt/glusterfs
+sudo ls -l /mnt/glusterfs/www/page.ex1.gr4/html
+total 1
+-rwxrwxr-x 1 root root 242 Nov 13 18:33 index.html
+drwxrwxrwx 2 root root   6 Nov 13 18:33 upload
+-rwxrwxr-x 1 root root 472 Nov 13 18:33 upload.php

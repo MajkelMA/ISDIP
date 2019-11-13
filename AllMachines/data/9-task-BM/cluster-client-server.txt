@@ -1,0 +1,6 @@
+[vagrant@ClusterMachine4 ~]$ sudo gluster pool list
+UUID                                    Hostname                State
+702578da-8c12-4e99-95b0-dd6127a91b2e    ClusterMachine3.ex1.gr4 Connected
+869a7715-2cb1-4109-bdb7-e2f8682d1752    ClusterMachine2.ex1.gr4 Connected
+97786405-cde7-443e-905c-2287ca259ef8    ClusterMachine1.ex1.gr4 Connected
+3bf7ea61-727f-47fb-9204-0112079992ea    localhost               Connected

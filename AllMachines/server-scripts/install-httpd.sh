@@ -9,6 +9,11 @@ sudo cp -n /vagrant_data/index.html /mnt/glusterfs/www/page.ex1.gr4/html/index.h
 sudo cp -n /vagrant_data/upload.php /mnt/glusterfs/www/page.ex1.gr4/html/upload.php
 sudo mkdir -p /etc/httpd/sites
 
+
+sudo ip route del default  
+sudo ip r add 192.168.1.0/24 via 10.0.0.100
+
+
 echo "IncludeOptional sites/*.conf" >> /etc/httpd/conf/httpd.conf
 echo "<VirtualHost *:80>
     ServerName www.server1.ex1.gr4

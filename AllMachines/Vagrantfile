@@ -6,15 +6,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "th7nder/isdp-quick-centos"
   config.vm.synced_folder "./data", "/vagrant_data"
 
-  def create_gluster_node(config, name, ip)
-  config.vm.define name, autostart: false do |cfg|
-      add_storage(cfg, "./disk-#{name}.vdi", 10)
-      cfg.vm.hostname = name
-      cfg.vm.provision "shell", path: "gluster.sh"
-      cfg.vm.network :private_network, ip: ip, netmask: "255.255.255.0", virtualbox__intnet: "FSNetwork"
-    end
-  end
-
 def add_storage(target, disk, size)
   target.vm.provider "virtualbox" do |vb|
     unless File.exist?(disk)
@@ -166,7 +157,7 @@ end
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
-    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
+    cm4.vm.provision "shell", run: "always", path: "cluster-scripts/cluster-volume-listings.sh"
   end
 
 
@@ -184,6 +175,7 @@ end
     s1.vm.provision "shell", run: "once", path: "server-scripts/server-etc-hosts.sh"
     s1.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s1.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.101"
+    s1.vm.provision "shell", run: "always", path: "server-scripts/cluster-server-listings.sh"
   end
 
   config.vm.define "ServerMachine2" do |s2|
@@ -200,6 +192,7 @@ end
     s2.vm.provision "shell", run: "once", path: "server-scripts/server-etc-hosts.sh"
     s2.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s2.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.102"
+    s2.vm.provision "shell", run: "always", path: "server-scripts/cluster-server-listings.sh"
   end
 
   config.vm.define "ServerMachine3" do |s3|
@@ -216,6 +209,7 @@ end
     s3.vm.provision "shell", run: "once", path: "server-scripts/server-etc-hosts.sh"
     s3.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s3.vm.provision "shell", run: "once", path: "server-scripts/install-httpd.sh", args: "10.0.0.103"
+    s3.vm.provision "shell", run: "always", path: "server-scripts/cluster-server-listings.sh"
   end
 
   
