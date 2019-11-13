@@ -10,9 +10,6 @@ sudo cp -n /vagrant_data/upload.php /mnt/glusterfs/www/page.ex1.gr4/html/upload.
 sudo mkdir -p /etc/httpd/sites
 
 
-sudo ip route del default  
-sudo ip r add 192.168.1.0/24 via 10.0.0.100
-
 
 echo "IncludeOptional sites/*.conf" >> /etc/httpd/conf/httpd.conf
 echo "<VirtualHost *:80>
@@ -29,11 +26,10 @@ echo "# This file controls the state of SELinux on the system.
 #     enforcing - SELinux security policy is enforced.
 #     permissive - SELinux prints warnings instead of enforcing.
 #     disabled - No SELinux policy is loaded.
-SELINUX=disabled
+SELINUX=permissive
 # SELINUXTYPE= can take one of three values:
 #     targeted - Targeted processes are protected,
 #     minimum - Modification of targeted policy. Only selected processes are protected.
 #     mls - Multi Level Security protection.
 SELINUXTYPE=targeted" > /etc/selinux/config
 sudo systemctl restart httpd
-sudo reboot

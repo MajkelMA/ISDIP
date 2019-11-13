@@ -8,13 +8,14 @@ sudo yum install curl -y
 sudo yum install tcpdump -y
 sudo yum install php php-opcache -y
 
-sudo firewall-cmd --add-service=glusterfs 
-sudo firewall-cmd --add-service=glusterfs --permanent
+
 
 sudo yum -y install glusterfs
 sudo yum -y install glusterfs-fuse
 
 
+sudo firewall-cmd --add-service=glusterfs 
+sudo firewall-cmd --add-service=glusterfs --permanent
 
 
 sudo mkdir -p /mnt/glusterfs

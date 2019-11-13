@@ -1,21 +1,30 @@
-#disable firewall
-sudo systemctl disable firewalld
-sudo systemctl stop firewalld
 #install glusterfs
+# sudo systemctl enable firewalld
+# sudo systemctl start firewalld
 sudo yum install wget
 sudo yum install centos-release-gluster -y
 sudo yum install epel-release -y
 sudo yum install glusterfs-server -y 
+sudo firewall-cmd --zone=nazwa_strefy --add-service=glusterfs --permanent
+sudo firewall-cmd --reload
+
 #enable glusterfs
 sudo systemctl enable glusterd
 sudo systemctl start glusterd
+sudo 
 #synchronize time
 sudo yum install -y ntp 
 sudo yum install -y ntpdate
 sudo systemctl enable ntpd 
-sudo systemctl start nptd 
-sudo ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org ntp.ics.p.lodz.pl
+sudo systemctl start ntpd 
+sudo firewall-cmd --add-service=ntp --permanent
+sudo firewall-cmd --reload
+sudo ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org 
+sudo timedatectl set-timezone Europe/Warsaw
+sudo hwclock -w
+# ntp.ics.p.lodz.pl
 sudo systemctl restart ntpd
+
 #write to name to etc/hosts
 echo "172.16.0.1 ClusterMachine1.ex1.gr4" >> /etc/hosts
 echo "172.16.0.2 ClusterMachine2.ex1.gr4" >> /etc/hosts
