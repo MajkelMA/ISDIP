@@ -1,1 +1,1 @@
-sudo ip route delete default 
+sudo ip r delete default

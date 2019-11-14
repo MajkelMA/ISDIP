@@ -95,10 +95,9 @@ end
     #networks
     cm1.vm.network "private_network", ip: "172.16.0.1", virtualbox__intnet: "clusternet", :netmask => "255.255.255.0"
     #scripts
-    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
+    cm1.vm.provision "shell", run: "always", path: "cluster-scripts/install-gluster.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
-    cm1.vm.provision "shell", run: "once", path: "cluster-scripts/close-default-route.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
     cm1.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
@@ -117,7 +116,6 @@ end
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
-    cm2.vm.provision "shell", run: "once", path: "cluster-scripts/close-default-route.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
     cm2.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
@@ -137,7 +135,6 @@ end
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/install-gluster.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
-    cm3.vm.provision "shell", run: "once", path: "cluster-scripts/close-default-route.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
     cm3.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume-listings.sh"
   end
@@ -159,7 +156,6 @@ end
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/new-partition.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/create-brick-storage.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/cluster-volume.sh"
-    cm4.vm.provision "shell", run: "once", path: "cluster-scripts/close-default-route.sh"
     cm4.vm.provision "shell", run: "once", path: "cluster-scripts/gluster-listings.sh"
     cm4.vm.provision "shell", run: "always", path: "cluster-scripts/cluster-volume-listings.sh"
   end
@@ -180,7 +176,6 @@ end
     s1.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s1.vm.provision "shell", run: "always", path: "server-scripts/install-httpd.sh", args: "10.0.0.101"
     s1.vm.provision "shell", run: "once", path: "server-scripts/cluster-server-listings.sh"
-    s1.vm.provision "shell", run: "once", path: "server-scripts/reboot-server.sh"
     s1.vm.provision "shell", run: "always", path: "server-scripts/add-default-route.sh"
   end
 
@@ -199,7 +194,7 @@ end
     s2.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s2.vm.provision "shell", run: "always", path: "server-scripts/install-httpd.sh", args: "10.0.0.102"
     s2.vm.provision "shell", run: "always", path: "server-scripts/cluster-server-listings.sh"
-    s2.vm.provision "shell", run: "once", path: "server-scripts/reboot-server.sh"
+    s2.vm.provision "shell", run: "always", path: "server-scripts/add-default-route.sh"
   end
 
   config.vm.define "ServerMachine3" do |s3|
@@ -217,7 +212,7 @@ end
     s3.vm.provision "shell", run: "once", path: "server-scripts/servers-up.sh"
     s3.vm.provision "shell", run: "always", path: "server-scripts/install-httpd.sh", args: "10.0.0.103"
     s3.vm.provision "shell", run: "always", path: "server-scripts/cluster-server-listings.sh"
-    s3.vm.provision "shell", run: "once", path: "server-scripts/reboot-server.sh"
+    s3.vm.provision "shell", run: "always", path: "server-scripts/add-default-route.sh"
   end
 
   
