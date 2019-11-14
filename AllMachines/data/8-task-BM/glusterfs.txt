@@ -262,3 +262,172 @@ sudo systemctl status glusterd
 
 Nov 14 00:49:40 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
 Nov 14 00:49:40 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 12:17:54 CET; 35s ago
+     Docs: man:glusterd(8)
+ Main PID: 5780 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5780 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 12:17:54 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 12:17:54 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 12:18:41 CET; 28s ago
+     Docs: man:glusterd(8)
+ Main PID: 5790 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5790 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 12:18:41 ClusterMachine1.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 12:18:41 ClusterMachine1.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 15:00:08 CET; 45s ago
+     Docs: man:glusterd(8)
+ Main PID: 5776 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5776 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 15:00:08 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 15:00:08 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 15:00:27 CET; 34s ago
+     Docs: man:glusterd(8)
+ Main PID: 5765 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5765 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 15:00:27 ClusterMachine1.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 15:00:27 ClusterMachine1.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 15:01:14 CET; 24s ago
+     Docs: man:glusterd(8)
+ Main PID: 5808 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5808 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 15:01:14 ClusterMachine2.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 15:01:14 ClusterMachine2.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 15:02:52 CET; 27s ago
+     Docs: man:glusterd(8)
+ Main PID: 5764 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           ├─5764 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+           ├─6559 /usr/sbin/glusterfsd -s ClusterMachine4.ex1.gr4 --volfile-id wol_grupa4.ClusterMachine4.ex1.gr4.bricks-gluster_brick-brick1 -p /var/run/gluster/vols/wol_grupa4/ClusterMachine4.ex1.gr4-bricks-gluster_brick-brick1.pid -S /var/run/gluster/5484d5d99a482082.socket --brick-name /bricks/gluster_brick/brick1 -l /var/log/glusterfs/bricks/bricks-gluster_brick-brick1.log --xlator-option *-posix.glusterd-uuid=3d443e4c-8184-4911-9a7a-47e1d7f17699 --process-name brick --brick-port 49152 --xlator-option wol_grupa4-server.listen-port=49152
+           └─6580 /usr/sbin/glusterfs -s localhost --volfile-id gluster/glustershd -p /var/run/gluster/glustershd/glustershd.pid -l /var/log/glusterfs/glustershd.log -S /var/run/gluster/d9978f9f5bc3dad5.socket --xlator-option *replicate*.node-uuid=3d443e4c-8184-4911-9a7a-47e1d7f17699 --process-name glustershd --client-pid=-6
+
+Nov 14 15:02:52 ClusterMachine4.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 15:02:52 ClusterMachine4.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:05:17 CET; 26s ago
+     Docs: man:glusterd(8)
+ Main PID: 5798 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5798 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:05:17 ClusterMachine2.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:05:17 ClusterMachine2.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:06:11 CET; 29s ago
+     Docs: man:glusterd(8)
+ Main PID: 5766 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5766 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:06:11 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:06:11 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:14:36 CET; 28s ago
+     Docs: man:glusterd(8)
+ Main PID: 5788 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5788 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:14:36 ClusterMachine1.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:14:36 ClusterMachine1.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:16:40 CET; 26s ago
+     Docs: man:glusterd(8)
+ Main PID: 5744 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5744 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:16:40 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:16:40 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:16:55 CET; 25s ago
+     Docs: man:glusterd(8)
+ Main PID: 5767 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5767 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:16:55 ClusterMachine2.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:16:55 ClusterMachine2.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:34:04 CET; 27s ago
+     Docs: man:glusterd(8)
+ Main PID: 5744 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5744 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:34:04 ClusterMachine1.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:34:04 ClusterMachine1.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:34:23 CET; 24s ago
+     Docs: man:glusterd(8)
+ Main PID: 5742 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5742 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:34:23 ClusterMachine2.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:34:23 ClusterMachine2.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:34:30 CET; 25s ago
+     Docs: man:glusterd(8)
+ Main PID: 5778 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           └─5778 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+
+Nov 14 18:34:30 ClusterMachine3.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:34:30 ClusterMachine3.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
+sudo systemctl status glusterd
+● glusterd.service - GlusterFS, a clustered file-system server
+   Loaded: loaded (/usr/lib/systemd/system/glusterd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:37:43 CET; 29s ago
+     Docs: man:glusterd(8)
+ Main PID: 5770 (glusterd)
+   CGroup: /system.slice/glusterd.service
+           ├─5770 /usr/sbin/glusterd -p /var/run/glusterd.pid --log-level INFO
+           ├─6564 /usr/sbin/glusterfsd -s ClusterMachine4.ex1.gr4 --volfile-id wol_grupa4.ClusterMachine4.ex1.gr4.bricks-gluster_brick-brick1 -p /var/run/gluster/vols/wol_grupa4/ClusterMachine4.ex1.gr4-bricks-gluster_brick-brick1.pid -S /var/run/gluster/5484d5d99a482082.socket --brick-name /bricks/gluster_brick/brick1 -l /var/log/glusterfs/bricks/bricks-gluster_brick-brick1.log --xlator-option *-posix.glusterd-uuid=4e55972c-e4ed-48b5-8fff-35a6526c741f --process-name brick --brick-port 49152 --xlator-option wol_grupa4-server.listen-port=49152
+           └─6585 /usr/sbin/glusterfs -s localhost --volfile-id gluster/glustershd -p /var/run/gluster/glustershd/glustershd.pid -l /var/log/glusterfs/glustershd.log -S /var/run/gluster/fff1d60d1462de06.socket --xlator-option *replicate*.node-uuid=4e55972c-e4ed-48b5-8fff-35a6526c741f --process-name glustershd --client-pid=-6
+
+Nov 14 18:37:43 ClusterMachine4.ex1.gr4 systemd[1]: Starting GlusterFS, a clustered file-system server...
+Nov 14 18:37:43 ClusterMachine4.ex1.gr4 systemd[1]: Started GlusterFS, a clustered file-system server.
