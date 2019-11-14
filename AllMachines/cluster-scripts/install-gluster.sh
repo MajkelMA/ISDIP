@@ -1,12 +1,9 @@
 #install glusterfs
-# sudo systemctl enable firewalld
-# sudo systemctl start firewalld
-sudo yum install wget
+sudo yum install ifconfig -y
+sudo yum install wget -y
 sudo yum install centos-release-gluster -y
 sudo yum install epel-release -y
 sudo yum install glusterfs-server -y 
-sudo firewall-cmd --zone=nazwa_strefy --add-service=glusterfs --permanent
-sudo firewall-cmd --reload
 
 #enable glusterfs
 sudo systemctl enable glusterd
@@ -17,8 +14,6 @@ sudo yum install -y ntp
 sudo yum install -y ntpdate
 sudo systemctl enable ntpd 
 sudo systemctl start ntpd 
-sudo firewall-cmd --add-service=ntp --permanent
-sudo firewall-cmd --reload
 sudo ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org 
 sudo timedatectl set-timezone Europe/Warsaw
 sudo hwclock -w

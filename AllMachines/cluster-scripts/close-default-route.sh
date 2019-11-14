@@ -1,0 +1,1 @@
+sudo ip r delete default
