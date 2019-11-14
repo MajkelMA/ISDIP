@@ -1,11 +1,11 @@
 #install glusterfs
-# sudo systemctl enable firewalld
-# sudo systemctl start firewalld
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
 sudo yum install wget
 sudo yum install centos-release-gluster -y
 sudo yum install epel-release -y
 sudo yum install glusterfs-server -y 
-sudo firewall-cmd --zone=nazwa_strefy --add-service=glusterfs --permanent
+sudo firewall-cmd --add-service=glusterfs --permanent
 sudo firewall-cmd --reload
 
 #enable glusterfs

@@ -44,3 +44,25 @@ sudo hostname
 ClusterMachine2.ex1.gr4
 sudo hostname
 ClusterMachine3.ex1.gr4
+sudo hostname
+ClusterMachine1.ex1.gr4
+sudo hostname
+ClusterMachine2.ex1.gr4
+sudo hostname
+ClusterMachine3.ex1.gr4
+sudo hostname
+ClusterMachine4.ex1.gr4
+sudo hostname
+ClusterMachine1.ex1.gr4
+sudo hostname
+ClusterMachine2.ex1.gr4
+sudo hostname
+ClusterMachine3.ex1.gr4
+sudo hostname
+ClusterMachine4.ex1.gr4
+sudo hostname
+ClusterMachine1.ex1.gr4
+sudo hostname
+ClusterMachine2.ex1.gr4
+sudo hostname
+ClusterMachine3.ex1.gr4

@@ -639,3 +639,312 @@ sudo gluster volume info
 sudo gluster pool list
 UUID					Hostname 	State
 b8bde649-8f49-43a7-be9c-758d5b0d9d36	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+31b32037-7515-46e3-a723-524cea94edcb	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+284c782d-a14d-488b-8976-ceb30b47be34	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+57d3d67b-46c9-4f5a-b892-c393157c11e8	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+Status of volume: wol_grupa4
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 7029                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6988                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6951                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6912                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+ 
+sudo gluster volume status
+Status of volume: wol_grupa4
+Gluster process                             TCP Port  RDMA Port  Online  Pid
+------------------------------------------------------------------------------
+Brick ClusterMachine1.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       7029 
+Brick ClusterMachine2.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6988 
+Brick ClusterMachine3.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6951 
+Brick ClusterMachine4.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6912 
+Self-heal Daemon on localhost               N/A       N/A        Y       6933 
+Self-heal Daemon on ClusterMachine1.ex1.gr4 N/A       N/A        Y       7050 
+Self-heal Daemon on ClusterMachine2.ex1.gr4 N/A       N/A        Y       7009 
+Self-heal Daemon on ClusterMachine3.ex1.gr4 N/A       N/A        Y       6972 
+ 
+Task Status of Volume wol_grupa4
+------------------------------------------------------------------------------
+There are no active volume tasks
+ 
+sudo gluster volume info
+ 
+Volume Name: wol_grupa4
+Type: Replicate
+Volume ID: d5496a44-2bee-4439-8ab8-9d71fd79afa1
+Status: Started
+Snapshot Count: 0
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+Brick2: ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+Brick3: ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+Brick4: ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+Options Reconfigured:
+transport.address-family: inet
+nfs.disable: on
+performance.client-io-threads: off
+sudo gluster pool list
+UUID					Hostname               	State
+57d3d67b-46c9-4f5a-b892-c393157c11e8	ClusterMachine3.ex1.gr4	Connected 
+284c782d-a14d-488b-8976-ceb30b47be34	ClusterMachine2.ex1.gr4	Connected 
+31b32037-7515-46e3-a723-524cea94edcb	ClusterMachine1.ex1.gr4	Connected 
+bd92dcca-7d6d-4dec-a34d-d5a3babe4e05	localhost              	Connected 
+sudo gluster volume status
+Status of volume: wol_grupa4
+Gluster process                             TCP Port  RDMA Port  Online  Pid
+------------------------------------------------------------------------------
+Brick ClusterMachine1.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       7029 
+Brick ClusterMachine2.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6988 
+Brick ClusterMachine3.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6951 
+Brick ClusterMachine4.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6912 
+Self-heal Daemon on localhost               N/A       N/A        Y       6933 
+Self-heal Daemon on ClusterMachine2.ex1.gr4 N/A       N/A        Y       7009 
+Self-heal Daemon on ClusterMachine3.ex1.gr4 N/A       N/A        Y       6972 
+Self-heal Daemon on ClusterMachine1.ex1.gr4 N/A       N/A        Y       7050 
+ 
+Task Status of Volume wol_grupa4
+------------------------------------------------------------------------------
+There are no active volume tasks
+ 
+sudo gluster volume info
+ 
+Volume Name: wol_grupa4
+Type: Replicate
+Volume ID: d5496a44-2bee-4439-8ab8-9d71fd79afa1
+Status: Started
+Snapshot Count: 0
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+Brick2: ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+Brick3: ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+Brick4: ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+Options Reconfigured:
+features.ctime: on
+transport.address-family: inet
+nfs.disable: on
+performance.client-io-threads: off
+sudo gluster pool list
+UUID					Hostname               	State
+57d3d67b-46c9-4f5a-b892-c393157c11e8	ClusterMachine3.ex1.gr4	Connected 
+284c782d-a14d-488b-8976-ceb30b47be34	ClusterMachine2.ex1.gr4	Connected 
+31b32037-7515-46e3-a723-524cea94edcb	ClusterMachine1.ex1.gr4	Connected 
+bd92dcca-7d6d-4dec-a34d-d5a3babe4e05	localhost              	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+8502a901-1ee4-43de-9ee3-4b4e5addc84a	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+2ce31002-a00c-4fde-9072-f4b9f75ed782	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+5865e5bf-ab27-4014-90d3-d33339bcf529	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+Status of volume: wol_grupa4
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6956                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6959                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 7006                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+------------------------------------------------------------------------------
+Brick                : Brick ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+TCP Port             : 49152               
+RDMA Port            : 0                   
+Online               : Y                   
+Pid                  : 6930                
+File System          : xfs                 
+Device               : /dev/sdb1           
+Mount Options        : rw,seclabel,relatime,attr2,inode64,noquota
+Inode Size           : 512                 
+Disk Space Free      : 2.0GB               
+Total Disk Space     : 2.0GB               
+Inode Count          : 1048576             
+Free Inodes          : 1048559             
+ 
+sudo gluster volume status
+Status of volume: wol_grupa4
+Gluster process                             TCP Port  RDMA Port  Online  Pid
+------------------------------------------------------------------------------
+Brick ClusterMachine1.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6956 
+Brick ClusterMachine2.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6959 
+Brick ClusterMachine3.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       7006 
+Brick ClusterMachine4.ex1.gr4:/bricks/glust
+er_brick/brick1                             49152     0          Y       6930 
+Self-heal Daemon on localhost               N/A       N/A        Y       6951 
+Self-heal Daemon on ClusterMachine3.ex1.gr4 N/A       N/A        Y       7027 
+Self-heal Daemon on ClusterMachine1.ex1.gr4 N/A       N/A        Y       6977 
+Self-heal Daemon on ClusterMachine2.ex1.gr4 N/A       N/A        Y       6980 
+ 
+Task Status of Volume wol_grupa4
+------------------------------------------------------------------------------
+There are no active volume tasks
+ 
+sudo gluster volume info
+ 
+Volume Name: wol_grupa4
+Type: Replicate
+Volume ID: 41231f96-961b-4903-9e63-ad7cccd9eb85
+Status: Started
+Snapshot Count: 0
+Number of Bricks: 1 x 4 = 4
+Transport-type: tcp
+Bricks:
+Brick1: ClusterMachine1.ex1.gr4:/bricks/gluster_brick/brick1
+Brick2: ClusterMachine2.ex1.gr4:/bricks/gluster_brick/brick1
+Brick3: ClusterMachine3.ex1.gr4:/bricks/gluster_brick/brick1
+Brick4: ClusterMachine4.ex1.gr4:/bricks/gluster_brick/brick1
+Options Reconfigured:
+features.ctime: on
+transport.address-family: inet
+nfs.disable: on
+performance.client-io-threads: off
+sudo gluster pool list
+UUID					Hostname               	State
+5865e5bf-ab27-4014-90d3-d33339bcf529	ClusterMachine3.ex1.gr4	Connected 
+2ce31002-a00c-4fde-9072-f4b9f75ed782	ClusterMachine2.ex1.gr4	Connected 
+8502a901-1ee4-43de-9ee3-4b4e5addc84a	ClusterMachine1.ex1.gr4	Connected 
+d4bdf3a9-09dd-417b-a19d-8d3d89147f48	localhost              	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+7e5d1092-c683-4fde-a02d-9847b10732fc	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+24ad5ff4-ffe3-4237-88e6-a92c5e5d9f6c	localhost	Connected 
+sudo gluster volume status wol_grupa4 detail
+sudo gluster volume status
+sudo gluster volume info
+sudo gluster pool list
+UUID					Hostname 	State
+69e254cc-0497-4834-a1be-21a735f69aa8	localhost	Connected 
