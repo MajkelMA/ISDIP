@@ -3,6 +3,7 @@
 global_defs {
     router_id MASTER-ROUTER
     lvs_flush
+    vrrp_garp_master_delay 0
     vrrp_garp_master_refresh 6
 }
 
